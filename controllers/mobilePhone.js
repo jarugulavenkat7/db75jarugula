@@ -1,7 +1,13 @@
 var MobilePhone = require('../models/mobilePhone');
 // List of all MobilePhone
-exports.mobilePhone_list = function (req, res) {
-res.send('NOT IMPLEMENTED: MobilePhone list');
+exports.mobilePhone_list = async function (req, res) {
+    try{
+        theMobilePhones = await MobilePhone.find();
+        res.send(theMobilePhones);
+        }
+        catch(err){
+        res.error(500,`{"error": ${err}}`);
+        }
 };
 // for a specific MobilePhone.
 exports.mobilePhone_detail = function (req, res) {
