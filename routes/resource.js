@@ -8,13 +8,13 @@ var mobilePhone_controller = require('../controllers/mobilePhone');
 router.get('/', api_controller.api);
 /// COSTUME ROUTES ///
 // POST request for creating a mobilPhone.
-router.post('/mobilePhone', mobilePhone_controller.mobilePhone_create_post);
+router.post('/mobilePhones', mobilePhone_controller.mobilePhone_create_post);
 // DELETE request to delete mobilPhone.
-router.delete('/mobilePhone/:id', mobilePhone_controller.mobilePhone_delete);
+router.delete('/mobilePhones/:id', mobilePhone_controller.mobilePhone_delete);
 // PUT request to update mobilPhone.
-router.put('/mobilePhone/:id', mobilePhone_controller.mobilePhone_update_put);
+router.put('/mobilePhones/:id', mobilePhone_controller.mobilePhone_update_put);
 // GET request for one mobilPhone.
-router.get('/mobilePhone/:id', mobilePhone_controller.mobilePhone_detail);
+router.get('/mobilePhones/:id', mobilePhone_controller.mobilePhone_detail);
 // GET request for list of all mobilPhone items.
-router.get('/mobilePhone', mobilePhone_controller.mobilePhone_list);
+router.get('/mobilePhones', mobilePhone_controller.mobilePhone_list);
 module.exports = router;

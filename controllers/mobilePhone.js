@@ -14,8 +14,27 @@ exports.mobilePhone_detail = function (req, res) {
 res.send('NOT IMPLEMENTED: MobilePhone detail: ' + req.params.id);
 };
 // Handle MobilePhone create on POST.
-exports.mobilePhone_create_post = function (req, res) {
-res.send('NOT IMPLEMENTED: MobilePhone create POST');
+exports.mobilePhone_create_post = async function (req, res) {
+    console.log(req.body)
+    let document = new MobilePhone();
+    // We are looking for a body, since POST does not have query parameters.
+    // Even though bodies can be in many different formats, we will be picky
+    // and require that it be a json object
+    // {"costumetype":"goat", "cost":12, "size":"large"}
+
+    
+    document.brand = req.body.brand;
+    document.model= req.body.model;
+    document.cost= req.body.cost;
+    document.color= req.body.color;
+
+    try{
+    let result = await document.save();
+    res.send(result);
+    }
+    catch(err){
+    res.error(500,`{"error": ${err}}`);
+    }
 };
 // Handle MobilePhone delete form on DELETE.
 exports.mobilePhone_delete = function (req, res) {
