@@ -3,10 +3,7 @@ extends layout
 block content
   h1= title
   - 
-   let mobilePhones=[{brand:"Iphone",model:"Se",cost:"400",color:"White"},
-                      {brand:"Samsung",model:"edge",cost:"600",color:"Blue"},
-                      {brand:"OnePlus",model:"8",cost:"800",color:"Black"},
-                      {brand:"MI",model:"note5pro",cost:"200",color:"Gold"}]
+   let mobilePhones=results
   div(class="container-fluid")
   div(class="row")
     each mobilePhone,index  in mobilePhones

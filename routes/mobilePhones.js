@@ -1,9 +1,7 @@
 var express = require('express');
+const mobilePhone_controlers= require('../controllers/mobilePhone');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('mobilePhones', { title: 'Search Results MobilePhones' });
-});
-
+/* GET Mobile Phones */
+router.get('/', mobilePhone_controlers.mobilePhone_view_all_Page );
 module.exports = router;

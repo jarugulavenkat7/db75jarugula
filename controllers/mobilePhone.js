@@ -25,3 +25,14 @@ res.send('NOT IMPLEMENTED: MobilePhone delete DELETE ' + req.params.id);
 exports.mobilePhone_update_put = function (req, res) {
 res.send('NOT IMPLEMENTED: MobilePhone update PUT' + req.params.id);
 };
+// VIEWS
+// Handle a show all view
+exports.mobilePhone_view_all_Page = async function(req, res) {
+    try{
+    themobilephones = await MobilePhone.find();
+    res.render('mobilePhones', { title: 'Mobile Phones Search Results', results: themobilephones });
+    }
+    catch(err){
+    res.error(500,`{"error": ${err}}`);
+    }
+    };
