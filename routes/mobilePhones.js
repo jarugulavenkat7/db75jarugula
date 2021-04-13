@@ -8,6 +8,8 @@ router.get('/', mobilePhone_controlers.mobilePhone_view_all_Page );
 router.get('/detail', mobilePhone_controlers.mobilePhone_view_one_Page);
 /* GET create costume page */
 router.get('/create', mobilePhone_controlers.mobilePhone_create_Page);
+/* GET create update page */
+router.get('/update', mobilePhone_controlers.mobilephone_update_Page);
 
 
 module.exports = router;

@@ -115,3 +115,16 @@ exports.mobilePhone_create_Page =  function(req, res) {
     }
 };
 
+// Handle building the view for updating a costume.
+// query provides the id
+exports.mobilephone_update_Page =  async function(req, res) {
+    console.log("update view for item "+req.query.id)
+    try{
+        let result = await MobilePhone.findById(req.query.id)
+        res.render('mobilePhoneUpdate', { title: 'Mobile Phone Update', toShow: result });
+    }
+    catch(err){
+        res.status(500)
+        res.send(`{'error': '${err}'}`);
+    }
+};
