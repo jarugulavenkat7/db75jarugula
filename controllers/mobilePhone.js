@@ -45,8 +45,17 @@ exports.mobilePhone_create_post = async function (req, res) {
     }
 };
 // Handle MobilePhone delete form on DELETE.
-exports.mobilePhone_delete = function (req, res) {
-res.send('NOT IMPLEMENTED: MobilePhone delete DELETE ' + req.params.id);
+exports.mobilePhone_delete = async function (req, res) {
+    console.log("delete "  + req.params.id)
+    try {
+        result = await MobilePhone.findByIdAndDelete( req.params.id)
+        console.log("Removed " + result)
+        res.send(result)
+    } catch (err) {
+        res.status(500)
+        res.send(`{"error": Error deleting ${err}}`);
+    }
+
 };
 // Handle MobilePhone update form on PUT.
 exports.mobilePhone_update_put = async function (req, res) {
