@@ -11,5 +11,7 @@ router.get('/create', mobilePhone_controlers.mobilePhone_create_Page);
 /* GET create update page */
 router.get('/update', mobilePhone_controlers.mobilephone_update_Page);
 
+/* GET create delete page */
+router.get('/delete', mobilePhone_controlers.mobilePhone_delete_Page);
 
 module.exports = router;
