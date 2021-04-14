@@ -5,19 +5,19 @@ block content
   div(class=" container rounded pt-3 col-md-4 bg-info")
     form(id='MobilePhoneForm', action="/resource/mobilePhones", method="POST")
         div.form-group
-            label.costumeAttr(for='brand') 
+            label.mobilePhoneAttr(for='brand') 
                 strong Mobile Phone Brand
             input#brand(type='text', name='brand',class='form-control')
         div.form-group
-            label.costumeAttr(for='model') 
+            label.mobilePhoneAttr(for='model') 
                 strong Mobile Phone Model
             input#model(type='text', name='model',class='form-control')
         div.form-group
-            label.costumeAttr(for='cost') 
+            label.mobilePhoneAttr(for='cost') 
                 strong Mobile Phone Cost
             input#cost(type='number', name='cost',class='form-control')
         div.form-group
-            label.costumeAttr(for='color') 
+            label.mobilePhoneAttr(for='color') 
                 strong Mobile Phone Color
             input#color(type='text', name='color',class='form-control')
         input(type="submit" class="btn btn-success")
