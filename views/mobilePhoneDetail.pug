@@ -2,22 +2,24 @@ extends layout
 
 block content
   h1= title
- 
-  - let brand = toShow.brand
-  - let model = toShow.model
-  - let cost = toShow.cost
-  - let color = toShow.color
-  div
-    div.row
-      div(class='costumeAttr mr-3') Mobile Phone Brand is:
-      div #{brand}
-    div.row
-      div(class='costumeAttr mr-3') Mobile Phone Model is:
-      div #{model}
-    div.row
-      div(class='costumeAttr mr-3') Mobile Phone Cost is:
-      div #{cost}
-    div.row
-      div(class='costumeAttr mr-3') Mobile Phone Color is:
-      div #{color}
+  if (toShow == null)
+    h2 No instance in the collection to display
+  else
+    - let brand = toShow.brand
+    - let model = toShow.model
+    - let cost = toShow.cost
+    - let color = toShow.color
+    div
+        div.row
+            div(class='costumeAttr mr-3') Mobile Phone Brand is:
+            div #{brand}
+        div.row
+            div(class='costumeAttr mr-3') Mobile Phone Model is:
+            div #{model}
+        div.row
+            div(class='costumeAttr mr-3') Mobile Phone Cost is:
+            div #{cost}
+        div.row
+            div(class='costumeAttr mr-3') Mobile Phone Color is:
+            div #{color}
 
