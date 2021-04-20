@@ -5,13 +5,19 @@ block content
   - 
    let mobilePhones=results
   div(class="container-fluid")
-  div(class="row")
+  div(class="row m-1")
     each mobilePhone,index  in mobilePhones
-      div(class="col-sm-2 bg-primary m-2 p-4" 
+      -let destination = `dispatch(\"/mobilePhones/update?id=${mobilePhone._id}\")`
+      div(class="col-sm-3 bg-success m-2 p-4" 
           onclick=`buy(${index})`) #{mobilePhone.brand} -- #{mobilePhone.model} -- #{mobilePhone.cost} -- #{mobilePhone.color}
+          button.btn( class="btn-primary ml-1", onclick= destination) Update
   script.
     function buy(itemNumber)
       {
         alert(`You purchased Item ${itemNumber+1}`)
+      }
+    function dispatch(path)
+      {
+        window.location.href=path
       }
       
