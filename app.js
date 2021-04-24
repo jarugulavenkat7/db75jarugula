@@ -19,7 +19,7 @@ passport.use(new LocalStrategy(
   return done(null, user);
   });
   }));
-  
+
 const connectionString = process.env.MONGO_CON
 mongoose = require('mongoose');
 mongoose.connect(connectionString,
@@ -35,6 +35,7 @@ var starsRouter = require('./routes/stars');
 var slotRouter = require('./routes/slot');
 var MobilePhone = require('./models/mobilePhone');
 var resourceRouter = require('./routes/resource');
+
 // We can seed the collection if needed on server start
 async function recreateDB(){
   // Delete everything
@@ -87,6 +88,7 @@ app.use('/mobilePhones', mobilePhonesRouter);
 app.use('/stars', starsRouter);
 app.use('/slot', slotRouter);
 app.use('/resource', resourceRouter);
+
 // passport config
 // Use the existing connection
 // The Account model
