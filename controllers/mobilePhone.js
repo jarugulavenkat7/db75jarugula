@@ -41,7 +41,8 @@ exports.mobilePhone_create_post = async function (req, res) {
     res.send(result);
     }
     catch(err){
-    res.error(500,`{"error": ${err}}`);
+    //res.error(500,`{"error": ${err}}`);
+    res.status(500).send("Not a valid mobile phone. Please check the input values")
     }
 };
 // Handle MobilePhone delete form on DELETE.
@@ -140,3 +141,14 @@ exports.mobilePhone_delete_Page = async function(req, res) {
         res.send(`{'error': '${err}'}`);
     }
 };
+
+// A little function to check if we have an authorized user and continue on
+
+// redirect to login.
+const secured = (req, res, next) => {
+if (req.user){
+return next();
+}
+req.session.returnTo = req.originalUrl;
+res.redirect("/login");
+}

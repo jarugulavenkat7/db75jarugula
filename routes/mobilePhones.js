@@ -9,9 +9,19 @@ router.get('/detail', mobilePhone_controlers.mobilePhone_view_one_Page);
 /* GET create costume page */
 router.get('/create', mobilePhone_controlers.mobilePhone_create_Page);
 /* GET create update page */
-router.get('/update', mobilePhone_controlers.mobilephone_update_Page);
+const secured = (req, res, next) => {
+    if (req.user){
+    return next();
+    }
+    req.session.returnTo = req.originalUrl;
+    res.redirect("/login");
+    }
+
+
+router.get('/update', secured,mobilePhone_controlers.mobilephone_update_Page);
 
 /* GET create delete page */
 router.get('/delete', mobilePhone_controlers.mobilePhone_delete_Page);
+
 
 module.exports = router;

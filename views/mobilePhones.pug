@@ -2,20 +2,26 @@ extends layout
 
 block content
   h1= title
-  - 
-   let mobilePhones=results
+  - let mobilePhones=results
+  - let createDestination = `dispatch(\"/mobilePhones/create")`
+  div(class="container-fluid")
+    button.btn( class="btn-primary ml-1", onclick= createDestination) Add New Mobile Phone
   div(class="container-fluid")
   div(class="row m-1")
-    each mobilePhone,index  in mobilePhones
-      -let destination = `dispatch(\"/mobilePhones/update?id=${mobilePhone._id}\")`
-      div(class="col-sm-3 bg-success m-2 p-4" 
-          onclick=`buy(${index})`) #{mobilePhone.brand} -- #{mobilePhone.model} -- #{mobilePhone.cost} -- #{mobilePhone.color}
-          button.btn( class="btn-primary ml-1", onclick= destination) Update
+    each mobilePhone  in mobilePhones
+      -let updateDestination = `dispatch(\"/mobilePhones/update?id=${mobilePhone._id}\")`
+      -let detailsDestination = `dispatch(\"/mobilePhones/detail?id=${mobilePhone._id}\")`
+      -let deleteDestination = `dispatch(\"/mobilePhones/delete?id=${mobilePhone._id}\")`
+      
+     
+      div(class="col-sm-3 bg-success m-2 p-4" ) 
+        div #{mobilePhone.brand} -- #{mobilePhone.model} -- #{mobilePhone.cost} -- #{mobilePhone.color}
+        div
+         button.btn( class="btn-primary ml-1", onclick= updateDestination) Update
+         button.btn( class="btn-secondary ml-1", onclick= detailsDestination) Details
+         button.btn( class="btn-danger ml-1", onclick= deleteDestination) Delete
   script.
-    function buy(itemNumber)
-      {
-        alert(`You purchased Item ${itemNumber+1}`)
-      }
+    
     function dispatch(path)
       {
         window.location.href=path
